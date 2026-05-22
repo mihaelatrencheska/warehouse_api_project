@@ -1,0 +1,26 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+
+# Runtime / dev artifacts
+**/boutique.db
+**/boutique.db-*
+**/logs/
+# Uploaded binaries (keep folder structure)
+**/wwwroot/uploads/products/*
+!**/wwwroot/uploads/products/.gitkeep

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=DM+Sans:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --cream: #f5f2ed;
+  --cream-border: #e8e2d8;
+  --cream-hover: #f0ebe2;
+  --charcoal: #1a1410;
+  --gold: #c9a96e;
+  --gold-muted: #c9a96e22;
+  --white: #ffffff;
+  --text-primary: #1a1410;
+  --text-muted: #888888;
+  --text-faint: #aaaaaa;
+  --ok-bg: #eaf3de;
+  --ok-text: #3b6d11;
+  --warn-bg: #faeeda;
+  --warn-text: #854f0b;
+  --danger-bg: #fcebeb;
+  --danger-text: #a32d2d;
+  --inactive-bg: #f1efe8;
+  --inactive-text: #5f5e5a;
+  --info-bg: #e6f1fb;
+  --info-text: #185fa5;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'DM Sans', system-ui, sans-serif;
+}
+
+@theme {
+  --font-sans: var(--font-ui);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.brand,
+.stat-number,
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.skeleton-shimmer {
+  animation: shimmer 1.4s ease-in-out infinite;
+  background: var(--cream-border);
+}
+
+.card {
+  background: var(--white);
+  border: 0.5px solid var(--cream-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.5px solid var(--cream-border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.input-field {
+  width: 100%;
+  border: 0.5px solid var(--cream-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: var(--white);
+  color: var(--text-primary);
+}
+
+.input-field:focus {
+  outline: 2px solid var(--gold-muted);
+  border-color: var(--gold);
+}
+
+.input-field:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--cream-hover);
+}
+

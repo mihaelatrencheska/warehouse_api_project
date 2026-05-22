@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- drop / perfume bottle silhouette matching the app's IconDroplet motif -->
+  <path
+    d="M16 3 C16 3 7 14 7 20 a9 9 0 0 0 18 0 C25 14 16 3 16 3 Z"
+    fill="#c9a96e"
+  />
+  <!-- subtle inner highlight -->
+  <ellipse cx="13" cy="18" rx="2" ry="3.5" fill="#fff" opacity="0.18" transform="rotate(-15 13 18)" />
+</svg>

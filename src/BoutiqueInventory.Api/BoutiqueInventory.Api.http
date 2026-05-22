@@ -1,0 +1,58 @@
+@host = http://localhost:5030
+@token = {{login.response.body.accessToken}}
+
+### Auth — obtain JWT (required for all other endpoints)
+# @name login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "owner",
+  "password": "12345678"
+}
+
+### Refresh access token
+POST {{host}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{login.response.body.refreshToken}}"
+}
+
+### Warehouses ----------------------------------------------------------
+GET {{host}}/api/warehouses
+Authorization: Bearer {{token}}
+
+### Reactivate a warehouse
+PATCH {{host}}/api/warehouses/{{warehouseId}}/reactivate
+Authorization: Bearer {{token}}
+
+### Products — browse catalog -------------------------------------------
+GET {{host}}/api/products?page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+### Search (FTS5 + filters, including sectionId)
+GET {{host}}/api/products/search?query=rose&sectionId=&page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+### Expiring within 30 days
+GET {{host}}/api/products/expiring?withinDays=30
+Authorization: Bearer {{token}}
+
+### Image search
+# POST {{host}}/api/products/search-by-image?maxResults=10&maxHammingDistance=12
+# Authorization: Bearer {{token}}
+# Content-Type: multipart/form-data; boundary=----boundary
+#
+# ------boundary
+# Content-Disposition: form-data; name="file"; filename="query.jpg"
+# Content-Type: image/jpeg
+#
+# < ./query.jpg
+# ------boundary--
+
+### Alerts --------------------------------------------------------------
+GET {{host}}/api/alerts
+Authorization: Bearer {{token}}
+
+### Real-time alerts (SignalR) — connect to /hubs/alerts with access_token query or Bearer
